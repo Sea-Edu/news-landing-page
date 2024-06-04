@@ -23,6 +23,13 @@ body {
     color: black;
 }
 
+.menu-btn i {
+    color: rgb(153, 153, 219);
+    font-size: 32px;
+    cursor: pointer;
+    display: none;
+}
+
 ul {
     display: flex;
 }
@@ -61,20 +68,25 @@ ul li a:hover {
     cursor: pointer;
 }
 
+.content_image:active {
+    box-shadow: rgba(0, 0, 0, 0.15) 20px 20px 26px;
+}
+
 .content_text {
     display: flex;
     padding: 15px 0;
 }
 
 .content_text-header {
-    width: 50%;
+    width: 45%;
     text-align: start;
     text-transform: capitalize;
     font-size: 60px;
 }
 
 .content_text-card {
-    width: 50%;
+    width: 40%;
+    margin-inline: 10px;
 }
 
 .content_text-card p {
@@ -157,8 +169,8 @@ a {
 
 /* footer */
 .news-content {
-    margin: 3% 0;
-    width: 33%;
+    margin: 7% 0;
+    width: 30%;
     display: flex;
 }
 
@@ -189,4 +201,100 @@ a {
     color: rgb(94, 94, 159);
     font-size: 18px;
     margin: 8px 0;
+}
+
+#click {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .container-column {
+        flex-direction: column;
+    }
+
+    .content {
+        height: auto;
+        width: auto;
+    }
+
+    .aside {
+        width: auto;
+    }
+
+    .news-content {
+        width: auto;
+    }
+
+    .news-content_image {
+        height: 60%;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .container-column-header {
+        flex-direction: column;
+    }
+
+    .content_text-header {
+        width: auto;
+        text-align: center;
+    }
+
+    .content_text-card {
+        width: auto;
+        text-align: center;
+    }
+
+    .content_text-card button {
+        width: 90%;
+    }
+}
+
+@media (max-width: 940px) {
+    .menu-btn i {
+        display: block;
+    }
+
+    #click:checked~.menu-btn i:before {
+        content: "\f00d";
+    }
+
+    ul {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        background-color: #111;
+        height: 100vh;
+        width: 100%;
+        display: block;
+        text-align: center;
+        transition: all 0.3s ease;
+    }
+
+    #click:checked~ul {
+        left: 0%;
+    }
+
+    li {
+        margin: 40px 0;
+    }
+
+    ul li a {
+        font-size: 22px;
+        display: block;
+    }
+
+    ul li a:hover,
+    ul li a:focus {
+        color: cyan;
+        background-color: none;
+    }
+
+    .content_text-header {
+        font-size: 45px;
+    }
+
+    #click:checked~body {
+        overflow: hidden;
+    }
 }
